@@ -3,3 +3,12 @@ km.out <-kmeans(x, centers = 3, nstart = 20)
 
 # Inspect the result
 summary(km.out)
+
+# Print the cluster membership component of the model
+km.out$cluster
+
+# Print the km.out object
+km.out
+
+# Scatter plot of x
+plot(x, col = km.out$cluster, main = "k-means with 3 clusters", xlab = "", ylab= "")
