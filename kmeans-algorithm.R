@@ -126,3 +126,9 @@ cut.pokemon <- cutree(hclust.pokemon, k = 3)
 
 # Compare methods
 table(km.pokemon$cluster, cut.pokemon)
+
+# Perform scaled PCA: pr.out
+pr.out <- prcomp(x = pokemon, scale = TRUE, center = TRUE)
+
+# Inspect model output
+summary(pr.out)
