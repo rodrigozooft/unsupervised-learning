@@ -120,3 +120,9 @@ pokemon.scaled <- scale(pokemon)
 
 # Create hierarchical clustering model: hclust.pokemon
 hclust.pokemon <- hclust(dist(pokemon.scaled), method = "complete")
+
+# Apply cutree() to hclust.pokemon: cut.pokemon
+cut.pokemon <- cutree(hclust.pokemon, k = 3)
+
+# Compare methods
+table(km.pokemon$cluster, cut.pokemon)
