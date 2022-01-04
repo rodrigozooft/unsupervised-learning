@@ -78,3 +78,9 @@ plot(pokemon[, c("Defense", "Speed")],
      col = km.out$cluster,
      main = paste("k-means clustering of Pokemon with", k, "clusters"),
      xlab = "Defense", ylab = "Speed")
+
+# Create hierarchical clustering model: hclust.out
+hclust.out <- hclust(d = dist(x))
+
+# Inspect the result
+summary(hclust.out)
