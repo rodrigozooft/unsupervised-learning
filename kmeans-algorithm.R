@@ -90,3 +90,21 @@ cutree(hclust.out, h = 7)
 
 # Cut by number of clusters
 cutree(hclust.out, k = 3)
+
+# Cluster using complete linkage: hclust.complete
+hclust.complete <- hclust(dist(x), method = "complete")
+
+# Cluster using average linkage: hclust.average
+hclust.average <- hclust(dist(x), method = "average")
+
+# Cluster using single linkage: hclust.single
+hclust.single <- hclust(dist(x), method = "single")
+
+# Plot dendrogram of hclust.complete
+plot(hclust.complete, main ="Complete")
+
+# Plot dendrogram of hclust.average
+plot(hclust.average, main = "Average")
+
+# Plot dendrogram of hclust.single
+plot(hclust.single, main = "Single")
