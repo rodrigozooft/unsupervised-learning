@@ -132,3 +132,9 @@ pr.out <- prcomp(x = pokemon, scale = TRUE, center = TRUE)
 
 # Inspect model output
 summary(pr.out)
+
+# Variability of each principal component: pr.var
+pr.var <- pr.out$sdev ^ 2
+
+# Variance explained by each principal component: pve
+pve <- pr.var / sum(pr.var)
