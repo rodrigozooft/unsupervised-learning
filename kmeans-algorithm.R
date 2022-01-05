@@ -189,3 +189,16 @@ wisc.pr <- prcomp(wisc.data, scale = TRUE, center = TRUE)
 
 # Look at summary of results
 summary(wisc.pr)
+
+# Create a biplot of wisc.pr
+biplot(wisc.pr)
+
+# Scatter plot observations by components 1 and 2
+plot(wisc.pr$x[, c(1, 2)], col = (diagnosis + 1), 
+     xlab = "PC1", ylab = "PC2")
+
+# Repeat for components 1 and 3
+plot(wisc.pr$x[, c(1, 3)], col = (diagnosis + 1), 
+     xlab = "PC1", ylab = "PC3")
+
+# Do additional data exploration of your choosing below (optional)
