@@ -230,3 +230,9 @@ data.dist <- dist(data.scaled)
 
 # Create a hierarchical clustering model: wisc.hclust
 wisc.hclust <- hclust(data.dist, method = "complete")
+
+# Cut tree so that it has 4 clusters: wisc.hclust.clusters
+wisc.hclust.clusters <- cutree(wisc.hclust, 4)
+
+# Compare cluster membership to actual diagnoses
+table(wisc.hclust.clusters, diagnosis)
