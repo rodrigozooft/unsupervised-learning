@@ -221,3 +221,12 @@ plot(pve, xlab = "Principal Component",
 plot(cumsum(pve), xlab = "Principal Component", 
      ylab = "Cumulative Proportion of Variance Explained", 
      ylim = c(0, 1), type = "b")
+
+# Scale the wisc.data data: data.scaled
+data.scaled <- scale(wisc.data)
+
+# Calculate the (Euclidean) distances: data.dist
+data.dist <- dist(data.scaled)
+
+# Create a hierarchical clustering model: wisc.hclust
+wisc.hclust <- hclust(data.dist, method = "complete")
