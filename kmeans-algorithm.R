@@ -178,3 +178,14 @@ row.names(wisc.data) <- wisc.df$id
 
 # Create diagnosis vector
 diagnosis <- as.numeric(wisc.df$diagnosis == "M", 1, 0)
+
+# Check column means and standard deviations
+colMeans(wisc.data)
+apply(wisc.data, 2, sd)
+
+
+# Execute PCA, scaling if appropriate: wisc.pr
+wisc.pr <- prcomp(wisc.data, scale = TRUE, center = TRUE)
+
+# Look at summary of results
+summary(wisc.pr)
