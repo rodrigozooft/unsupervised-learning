@@ -202,3 +202,22 @@ plot(wisc.pr$x[, c(1, 3)], col = (diagnosis + 1),
      xlab = "PC1", ylab = "PC3")
 
 # Do additional data exploration of your choosing below (optional)
+
+# Set up 1 x 2 plotting grid
+par(mfrow = c(1, 2))
+
+# Calculate variability of each component
+pr.var <- wisc.pr$sdev ^ 2
+
+# Variance explained by each principal component: pve
+pve <- pr.var / sum(pr.var)
+
+# Plot variance explained for each principal component
+plot(pve, xlab = "Principal Component", 
+     ylab = "Proportion of Variance Explained", 
+     ylim = c(0, 1), type = "b")
+
+# Plot cumulative proportion of variance explained
+plot(cumsum(pve), xlab = "Principal Component", 
+     ylab = "Cumulative Proportion of Variance Explained", 
+     ylim = c(0, 1), type = "b")
