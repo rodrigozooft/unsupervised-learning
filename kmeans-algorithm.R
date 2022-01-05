@@ -236,3 +236,12 @@ wisc.hclust.clusters <- cutree(wisc.hclust, 4)
 
 # Compare cluster membership to actual diagnoses
 table(wisc.hclust.clusters, diagnosis)
+
+# Create a k-means model on wisc.data: wisc.km
+wisc.km <- kmeans(scale(wisc.data), center = 2, nstart = 20)
+
+# Compare k-means to actual diagnoses
+table(wisc.km$cluster, diagnosis)
+
+# Compare k-means to hierarchical clustering
+table(wisc.km$cluster,wisc.hclust.clusters)
