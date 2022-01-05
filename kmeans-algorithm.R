@@ -245,3 +245,16 @@ table(wisc.km$cluster, diagnosis)
 
 # Compare k-means to hierarchical clustering
 table(wisc.km$cluster,wisc.hclust.clusters)
+
+# Create a hierarchical clustering model: wisc.pr.hclust
+wisc.pr.hclust <- hclust(dist(wisc.pr$x[, 1:7]), method = "complete")
+
+# Cut model into 4 clusters: wisc.pr.hclust.clusters
+wisc.pr.hclust.clusters <- cutree(wisc.pr.hclust, 4)
+
+# Compare to actual diagnoses
+table(wisc.hclust.clusters, diagnosis)
+
+# Compare to k-means and hierarchical
+table(wisc.pr.hclust.clusters, diagnosis)
+table(wisc.km$cluster, diagnosis)
