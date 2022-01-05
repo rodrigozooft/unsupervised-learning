@@ -164,3 +164,17 @@ pr.without.scaling <- prcomp(pokemon, scale = FALSE, center = TRUE)
 # Create biplots of both for comparison
 biplot(pr.with.scaling)
 biplot(pr.without.scaling)
+
+url <- "http://s3.amazonaws.com/assets.datacamp.com/production/course_1903/datasets/WisconsinCancer.csv"
+
+# Download the data: wisc.df
+wisc.df <- read.csv(url)
+
+# Convert the features of the data: wisc.data
+wisc.data <- as.matrix(wisc.df[3:32])
+
+# Set the row names of wisc.data
+row.names(wisc.data) <- wisc.df$id
+
+# Create diagnosis vector
+diagnosis <- as.numeric(wisc.df$diagnosis == "M", 1, 0)
